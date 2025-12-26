@@ -12,9 +12,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Jasim Malook – Full-Stack Web & Mobile App Developer",
   description: "Full-stack developer specializing in modern web, mobile, and SaaS applications. Expert in React, Next.js, Node.js, and scalable backend systems. Available for freelance and remote work.",
-  icons: {
-    icon: "/favicon.ico",
-  },
+
 };
 
 export default function RootLayout({
