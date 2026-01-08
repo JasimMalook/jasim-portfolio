@@ -25,7 +25,7 @@ const projects: Project[] = [
         description: "A full-featured e-commerce website with a custom admin panel for managing products, orders, and users. Built for real-world business use with a responsive and clean UI.",
         tags: ["PHP", "MySQL", "Bootstrap", "jQuery"],
         color: "from-indigo-600 to-purple-600",
-        liveUrl: "nexashop.unaux.com",
+        liveUrl: "https://nexashop.unaux.com",
         githubUrl: "https://github.com/JasimMalook/nexashop-ecommerce",
         images: [
             "/projects/nexashop/home.png",
