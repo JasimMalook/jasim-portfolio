@@ -8,7 +8,18 @@ import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const projects = [
+interface Project {
+    title: string;
+    description: string;
+    tags: string[];
+    color: string;
+    liveUrl?: string;
+    githubUrl?: string;
+    images?: string[];
+    disabled?: boolean;
+}
+
+const projects: Project[] = [
     {
         title: "NexaShop – E-Commerce Website",
         description: "A full-featured e-commerce website with a custom admin panel for managing products, orders, and users. Built for real-world business use with a responsive and clean UI.",
@@ -32,6 +43,7 @@ const projects = [
         tags: ["React", "OpenAI API", "Tailwind"],
         color: "from-blue-500 to-cyan-500",
         // image: "/projects/nexashop/home.png", // Example placeholder
+        images: [],
         disabled: true,
     },
     {
@@ -129,13 +141,12 @@ export function Projects() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {projects.map((project, index) => (
                     <Card key={index} className="overflow-hidden group" variant="default">
-                        {/* Image Preview / Carousel */}
                         <div className="relative h-56 md:h-64 w-full overflow-hidden">
-                            {project.images ? (
+                            {project.images && project.images.length > 1 ? (
                                 <ProjectCarousel images={project.images} title={project.title} />
-                            ) : project.image ? (
+                            ) : project.images && project.images.length === 1 ? (
                                 <img
-                                    src={project.image}
+                                    src={project.images[0]}
                                     alt={project.title}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
