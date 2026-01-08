@@ -72,21 +72,25 @@ const projects: Project[] = [
 function ProjectCarousel({ images, title }: { images: string[]; title: string }) {
     const [current, setCurrent] = useState(0);
 
-    const next = (e: React.MouseEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
+    const handleNext = (e?: React.MouseEvent) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
         setCurrent((prev) => (prev + 1) % images.length);
     };
 
-    const prev = (e: React.MouseEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
+    const handlePrev = (e?: React.MouseEvent) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
         setCurrent((prev) => (prev - 1 + images.length) % images.length);
     };
 
     return (
-        <div className="relative h-full w-full group/carousel overflow-hidden">
-            <AnimatePresence mode="wait">
+        <div className="relative h-full w-full group/carousel overflow-hidden touch-pan-y">
+            <AnimatePresence initial={false} mode="wait">
                 <motion.img
                     key={current}
                     src={images[current]}
@@ -94,33 +98,55 @@ function ProjectCarousel({ images, title }: { images: string[]; title: string })
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-full h-full object-cover"
+                    transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                        opacity: { duration: 0.2 }
+                    }}
+                    className="w-full h-full object-cover cursor-grab active:cursor-grabbing"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.7}
+                    onDragEnd={(_, info) => {
+                        const threshold = 50;
+                        if (info.offset.x > threshold) {
+                            handlePrev();
+                        } else if (info.offset.x < -threshold) {
+                            handleNext();
+                        }
+                    }}
                 />
             </AnimatePresence>
 
-            {/* Navigation Arrows */}
+            {/* Navigation Arrows - Hidden on mobile, visible on hover on PC */}
             <button
-                onClick={prev}
-                className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity z-10 hover:bg-black/70"
+                onClick={handlePrev}
+                className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white opacity-0 md:group-hover/carousel:opacity-100 transition-all duration-300 z-10 hover:bg-black/70 hover:scale-110 active:scale-95 hidden md:flex"
                 aria-label="Previous image"
             >
                 <ChevronLeft size={20} />
             </button>
             <button
-                onClick={next}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity z-10 hover:bg-black/70"
+                onClick={handleNext}
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white opacity-0 md:group-hover/carousel:opacity-100 transition-all duration-300 z-10 hover:bg-black/70 hover:scale-110 active:scale-95 hidden md:flex"
                 aria-label="Next image"
             >
                 <ChevronRight size={20} />
             </button>
 
             {/* Pagination Dots */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
                 {images.map((_, i) => (
-                    <div
+                    <button
                         key={i}
-                        className={`w-1.5 h-1.5 rounded-full transition-colors ${i === current ? 'bg-white' : 'bg-white/40'}`}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setCurrent(i);
+                        }}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/60'}`}
+                        aria-label={`Go to image ${i + 1}`}
                     />
                 ))}
             </div>
