@@ -27,7 +27,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <div className="min-h-screen bg-background">
             {/* Top Navigation Bar */}
             <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-                <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
                     <Link
                         href="/#projects"
                         className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* Hero Section */}
             <section className="py-16 lg:py-24">
-                <div className="container mx-auto px-4 md:px-6">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6">
                     <div className="max-w-4xl">
                         <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wide uppercase rounded-full bg-primary/10 text-primary border border-primary/20">
                             {project.category}
@@ -90,13 +90,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             {/* Hero Image */}
             {project.images && project.images.length > 0 && (
                 <section className="pb-16 lg:pb-24">
-                    <div className="container mx-auto px-4 md:px-6">
+                    <div className="max-w-[90%] mx-auto px-4 md:px-6">
                         <div className="rounded-2xl overflow-hidden border border-border bg-card">
-                            <img
-                                src={project.images[0]}
-                                alt={`${project.shortTitle} preview`}
-                                className="w-full h-auto object-cover"
-                            />
+                            <div className="relative aspect-video w-full">
+                                <img
+                                    src={project.images[0]}
+                                    alt={`${project.shortTitle} preview`}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -104,7 +106,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* Project Overview */}
             <section className="py-16 lg:py-24 bg-secondary/30">
-                <div className="container mx-auto px-4 md:px-6">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6">
                     <div className="max-w-3xl">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="p-2 rounded-lg bg-primary/10">
@@ -121,7 +123,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* Challenge */}
             <section className="py-16 lg:py-24">
-                <div className="container mx-auto px-4 md:px-6">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div>
                             <div className="flex items-center gap-3 mb-6">
@@ -150,7 +152,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* Solution */}
             <section className="py-16 lg:py-24 bg-secondary/30">
-                <div className="container mx-auto px-4 md:px-6">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div>
                             <div className="flex items-center gap-3 mb-6">
@@ -177,7 +179,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* Key Features */}
             <section className="py-16 lg:py-24">
-                <div className="container mx-auto px-4 md:px-6">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6">
                     <div className="flex items-center gap-3 mb-8">
                         <div className="p-2 rounded-lg bg-green-500/10">
                             <Award className="h-5 w-5 text-green-500" />
@@ -200,7 +202,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* Technology Stack */}
             <section className="py-16 lg:py-24 bg-secondary/30">
-                <div className="container mx-auto px-4 md:px-6">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6">
                     <h2 className="text-2xl md:text-3xl font-bold mb-8">Technology Stack</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {project.techStack.map((tech, i) => (
@@ -219,7 +221,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             {/* Project Gallery */}
             {project.images && project.images.length > 1 && (
                 <section className="py-16 lg:py-24">
-                    <div className="container mx-auto px-4 md:px-6">
+                    <div className="max-w-[90%] mx-auto px-4 md:px-6">
                         <h2 className="text-2xl md:text-3xl font-bold mb-8">Project Gallery</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {project.images.map((img, i) => (
@@ -241,7 +243,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* Business Impact */}
             <section className="py-16 lg:py-24 bg-secondary/30">
-                <div className="container mx-auto px-4 md:px-6">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div>
                             <div className="flex items-center gap-3 mb-6">
@@ -268,7 +270,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* Results */}
             <section className="py-16 lg:py-24">
-                <div className="container mx-auto px-4 md:px-6">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6">
                     <h2 className="text-2xl md:text-3xl font-bold mb-8">Results</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                         {project.results.map((result, i) => (
@@ -290,7 +292,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* CTA */}
             <section className="py-16 lg:py-24 bg-secondary/30">
-                <div className="container mx-auto px-4 md:px-6 text-center">
+                <div className="max-w-[90%] mx-auto px-4 md:px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
                         Interested in working together?
                     </h2>
