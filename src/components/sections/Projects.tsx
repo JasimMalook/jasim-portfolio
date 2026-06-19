@@ -100,7 +100,7 @@ function FeaturedProjectCard({ project }: { project: ProjectDetail }) {
     return (
         <Card className="overflow-hidden group mb-12" variant="default">
             <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="relative aspect-video lg:aspect-auto lg:h-full w-full overflow-hidden">
+                <div className="relative aspect-video lg:aspect-auto lg:h-[420px] w-full overflow-hidden">
                     {project.images && project.images.length > 1 ? (
                         <ProjectCarousel images={project.images} title={project.title} />
                     ) : project.images && project.images.length === 1 ? (
