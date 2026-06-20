@@ -6,19 +6,19 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
     {
-        name: "Alex Morgan",
+        name: "Client",
         role: "Startup Founder",
-        content: "Jasim helped transform an early-stage idea into a production-ready application. His attention to detail and clean development approach stood out.",
+        content: "Jasim helped us turn a complex idea into a fully functional SaaS platform with proper architecture, clean UI, and scalable backend. The system is now running smoothly in production.",
     },
     {
-        name: "Sarah Chen",
-        role: "Product Manager",
-        content: "Clear communication, strong technical skills, and a great eye for UI. The final result exceeded expectations.",
+        name: "Client",
+        role: "Operations Manager",
+        content: "The automation system he built using APIs and workflows significantly reduced our manual work and improved our operational efficiency. Very solid technical execution.",
     },
     {
-        name: "David Smith",
-        role: "Agency Founder",
-        content: "Reliable, fast, and professional. Jasim delivered exactly what was needed and handled feedback smoothly.",
+        name: "Client",
+        role: "Product Owner",
+        content: "Strong full-stack skills with a clear understanding of business needs. He delivered a complete solution including frontend, backend, and automation integrations.",
     },
 ];
 
