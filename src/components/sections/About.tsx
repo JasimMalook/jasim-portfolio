@@ -29,7 +29,7 @@ const skillCategories = [
     {
         title: "AI & Automation",
         icon: Sparkles,
-        skills: ["AI Integration", "OpenAI APIs", "n8n", "Make", "Workflow Automation"],
+        skills: ["AI Integration", "OpenAI APIs", "n8n", "Make", "GoHighLevel", "OpenClaw", "Hermes Agent", "Zapier", "Workflow Automation"],
     },
     {
         title: "CMS",
@@ -41,7 +41,7 @@ const skillCategories = [
 export function About() {
     return (
         <Section id="about" className="bg-secondary/30">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 {/* Left – About Text */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -70,8 +70,8 @@ export function About() {
                     </div>
                 </motion.div>
 
-                {/* Right – Skills by Category */}
-                <div className="space-y-5">
+                {/* Right – Skills by Category (2-col grid) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {skillCategories.map((cat, catIndex) => (
                         <motion.div
                             key={cat.title}
@@ -80,18 +80,18 @@ export function About() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: catIndex * 0.07 }}
                         >
-                            <Card variant="glass" className="p-5">
+                            <Card variant="glass" className="p-4 h-full">
                                 <div className="flex items-center gap-2 mb-3">
                                     <cat.icon className="w-4 h-4 text-primary" />
-                                    <span className="text-sm font-semibold uppercase tracking-wider text-foreground">
+                                    <span className="text-xs font-semibold uppercase tracking-wider text-foreground">
                                         {cat.title}
                                     </span>
                                 </div>
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-1.5">
                                     {cat.skills.map((skill) => (
                                         <span
                                             key={skill}
-                                            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-secondary text-secondary-foreground border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-colors"
+                                            className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-secondary text-secondary-foreground border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-colors"
                                         >
                                             {skill}
                                         </span>
