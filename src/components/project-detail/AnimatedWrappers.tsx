@@ -79,36 +79,36 @@ function StaggerItem({
 
 /* ── Floating buttons ────────────────────────────────────────── */
 function FloatingButtons() {
-    const [show, setShow] = useState(false);
+    const [showScroll, setShowScroll] = useState(false);
 
     useEffect(() => {
-        const onScroll = () => setShow(window.scrollY > 300);
+        const onScroll = () => setShowScroll(window.scrollY > 300);
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    if (!show) return null;
-
     return (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-            {/* Scroll to top */}
-            <motion.button
-                initial={{ opacity: 0, scale: 0.6 }}
-                animate={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="w-12 h-12 rounded-full bg-background/80 backdrop-blur-md border border-border shadow-lg flex items-center justify-center text-foreground hover:bg-accent transition-colors"
-                aria-label="Scroll to top"
-            >
-                <ArrowUp className="h-5 w-5" />
-            </motion.button>
+            {/* Scroll to top – only visible after scrolling */}
+            {showScroll && (
+                <motion.button
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.6 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                    className="w-12 h-12 rounded-full bg-background/80 backdrop-blur-md border border-border shadow-lg flex items-center justify-center text-foreground hover:bg-accent transition-colors"
+                    aria-label="Scroll to top"
+                >
+                    <ArrowUp className="h-5 w-5" />
+                </motion.button>
+            )}
 
-            {/* WhatsApp */}
+            {/* WhatsApp – always visible */}
             <motion.a
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 href="https://wa.me/923369662100"
