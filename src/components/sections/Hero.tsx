@@ -15,14 +15,37 @@ const phrases = [
     "smart business systems",
 ];
 
+const badgePhrases = [
+    "Available for SaaS, AI & Automation Projects",
+    "Open to Freelance Projects & Collaborations",
+    "Helping Businesses Automate & Scale",
+    "Building SaaS & Automation Solutions",
+    "Available for Freelance & Contract Projects",
+];
+
 const TYPING_SPEED = 80;
 const DELETING_SPEED = 40;
 const PAUSE_AFTER_TYPE = 1800;
+const BADGE_INTERVAL = 2500;
 
 export function Hero() {
     const [phraseIndex, setPhraseIndex] = useState(0);
     const [text, setText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
+    const [badgeIndex, setBadgeIndex] = useState(0);
+    const [badgeVisible, setBadgeVisible] = useState(true);
+
+    // Badge fade cycle
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setBadgeVisible(false);
+            setTimeout(() => {
+                setBadgeIndex((prev) => (prev + 1) % badgePhrases.length);
+                setBadgeVisible(true);
+            }, 300);
+        }, BADGE_INTERVAL);
+        return () => clearInterval(interval);
+    }, []);
 
     const tick = useCallback(() => {
         const currentPhrase = phrases[phraseIndex];
@@ -65,8 +88,10 @@ export function Hero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <div className="inline-block px-3 py-1 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
-                        Available for freelance work
+                    <div className="inline-block px-3 py-1 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20 min-h-[28px]">
+                        <span className={`transition-opacity duration-300 ${badgeVisible ? "opacity-100" : "opacity-0"}`}>
+                            {badgePhrases[badgeIndex]}
+                        </span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
                         I build modern <br />
