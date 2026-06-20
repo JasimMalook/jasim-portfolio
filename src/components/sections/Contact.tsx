@@ -17,10 +17,16 @@ export function Contact() {
         <Section id="contact">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 className="text-4xl font-bold mb-6">Let’s work together</h2>
+                    <h2 className="text-4xl font-bold mb-6">Let&apos;s Build Systems That Grow Your Business</h2>
                     <p className="text-muted-foreground text-lg mb-8">
-                        Ready to start a project or have an idea in mind?
-                        Feel free to reach out — I’m always open to discussing new opportunities, collaborations, or freelance work.
+                        I work with startups and businesses to design and develop scalable digital
+                        products, SaaS platforms, and automation systems that improve efficiency
+                        and drive growth.
+                    </p>
+                    <p className="text-muted-foreground text-lg mb-8">
+                        Whether it&apos;s a new product, system improvement, or automation workflow,
+                        feel free to reach out. I&apos;m open to freelance work, collaborations,
+                        and long-term partnerships.
                     </p>
 
                     <div className="space-y-4">
