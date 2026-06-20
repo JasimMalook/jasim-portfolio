@@ -103,8 +103,9 @@ export function Hero() {
                         for growing businesses
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
-                        Full-Stack Developer &amp; Automation Specialist building production-ready
-                        web apps, AI workflows, and SaaS solutions for startups worldwide.
+                        Slow apps and manual work hold businesses back. I fix that –
+                        building fast, scalable web apps, AI automations, and SaaS
+                        solutions for startups worldwide.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Button size="lg" asChild>
