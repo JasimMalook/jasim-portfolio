@@ -5,10 +5,10 @@ import { Github, Linkedin, Twitter, MessageCircle } from "lucide-react";
 import { Button } from "./ui/Button";
 
 const navLinks = [
+    { name: "Home", href: "/" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Projects", href: "#projects" },
-    { name: "Process", href: "#process" },
     { name: "Contact", href: "#contact" },
 ];
 
@@ -31,8 +31,11 @@ export function Footer() {
                             <span>Jasim<span className="text-primary">.dev</span></span>
                         </Link>
                         <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                            Full-Stack Developer &amp; Automation Specialist building scalable
-                            digital products, SaaS platforms, and AI-powered systems.
+                            Building scalable web applications, SaaS platforms, and AI-powered
+                            automation systems for modern businesses.
+                        </p>
+                        <p className="text-muted-foreground text-xs mt-2 max-w-xs">
+                            Available for freelance projects, collaborations, and long-term partnerships.
                         </p>
                     </div>
 
@@ -78,7 +81,7 @@ export function Footer() {
                         </ul>
                         <div className="flex gap-3 mt-5">
                             {socialLinks.map((social) => (
-                                <Button key={social.name} variant="outline" size="icon" asChild className="rounded-full w-9 h-9">
+                                <Button key={social.name} variant="outline" size="icon" asChild className="rounded-full w-9 h-9 hover:scale-110 transition-transform duration-200">
                                     <Link href={social.href} target="_blank" aria-label={social.name}>
                                         <social.icon size={16} />
                                     </Link>
