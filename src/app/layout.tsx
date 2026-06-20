@@ -10,9 +10,41 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Jasim Malook – Full-Stack Web & Mobile App Developer",
-  description: "Full-stack developer specializing in modern web, mobile, and SaaS applications. Expert in React, Next.js, Node.js, and scalable backend systems. Available for freelance and remote work.",
-
+  title: {
+    default: "Jasim | Full-Stack Developer & Automation Specialist",
+    template: "%s | Jasim Malook",
+  },
+  description:
+    "I build fast, scalable web & mobile apps, AI automations, and SaaS solutions for startups worldwide.",
+  metadataBase: new URL("https://jasim.dev"),
+  openGraph: {
+    title: "Jasim | Full-Stack Developer & Automation Specialist",
+    description:
+      "I build fast, scalable web & mobile apps, AI automations, and SaaS solutions for startups worldwide.",
+    url: "https://jasim.dev",
+    siteName: "Jasim Malook",
+    images: [
+      {
+        url: "/images/jasim.png",
+        width: 800,
+        height: 800,
+        alt: "Jasim Malook – Full-Stack Developer & Automation Specialist",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jasim | Full-Stack Developer & Automation Specialist",
+    description:
+      "I build fast, scalable web & mobile apps, AI automations, and SaaS solutions for startups worldwide.",
+    images: ["/images/jasim.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
