@@ -7,6 +7,7 @@ import { Projects } from "@/components/sections/Projects";
 import { Process } from "@/components/sections/Process";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
+import { FloatingButtons } from "@/components/project-detail/AnimatedWrappers";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <FloatingButtons />
     </div>
   );
 }
