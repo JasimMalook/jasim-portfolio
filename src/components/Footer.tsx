@@ -2,23 +2,8 @@
 
 import Link from "next/link";
 import { Github, Linkedin, Twitter, MessageCircle, Mail } from "lucide-react";
+import { SiFiverr, SiUpwork } from "react-icons/si";
 import { Button } from "./ui/Button";
-
-function FiverrIcon({ size = 16 }: { size?: number }) {
-    return (
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M21.502 15.049c-.604.267-1.284.442-2.002.527v1.924c0 .774-.628 1.402-1.402 1.402h-.3c-.774 0-1.402-.628-1.402-1.402v-1.842c-2.08-.431-3.652-1.22-4.565-2.334h-.006l3.607 5.902c.542.89 1.551 1.455 2.668 1.455h.209c.842 0 1.527-.685 1.527-1.527 0-.842-.685-1.527-1.527-1.527h-.107c-.406 0-.778.16-1.047.418l-2.234 3.509V15.2c0-.608-.493-1.102-1.102-1.102h-1.8c-.608 0-1.102.493-1.102 1.102v4.523c0 .774-.628 1.402-1.402 1.402h-.3c-.774 0-1.402-.628-1.402-1.402v-4.523c0-1.868 1.518-3.386 3.386-3.386h1.8c1.868 0 3.386 1.518 3.386 3.386v1.842c1.206-.14 2.347-.555 3.354-1.187l-2.05-3.346c-.373-.608-.208-1.406.365-1.84.572-.433 1.36-.293 1.787.26l3.126 4.038V15.2c0-.608-.493-1.102-1.102-1.102h-.2z" />
-        </svg>
-    );
-}
-
-function UpworkIcon({ size = 16 }: { size?: number }) {
-    return (
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.058 16.616c2.173-.283 3.073-2.06 3.073-2.06l.007-.065s-.753 2.388-3.54 2.388c0 0-1.942.1-3.463.1h-2.56c-1.563 0-3.882-.1-3.882-.1 2.66 0 4.144-2.337 4.144-2.337h.004c.388-.703.7-1.153 1.16-1.377.803-.393 1.885-.243 2.97.215 1.722.72 2.795 1.86 2.795 1.86l-3.804-2.605s-.416-.516-1.15-.835c-.532-.232-1.145-.294-1.663-.072-.918.395-1.294 1.328-1.294 1.328s.505-1.156 1.918-1.642c1.07-.37 2.39-.343 3.328.273.504.332.893.79 1.15 1.305l.04.08s-1.285-3.436-5.653-3.436H7.84S4.5 6.05 4.5 6.05c3.672 0 5.802 3.552 6.13 4.04.375.557.595 1.075.718 1.546 1.16-.167 2.377-.043 3.364.518.527.3.973.743 1.32 1.288.065.102.128.207.187.314l.84-1.14z" />
-        </svg>
-    );
-}
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -32,8 +17,8 @@ const socialLinks = [
     { name: "GitHub", href: "https://github.com/JasimMalook", icon: Github },
     { name: "LinkedIn", href: "https://www.linkedin.com/in/jasim-malook", icon: Linkedin },
     { name: "Twitter", href: "https://x.com/JasimMalook", icon: Twitter },
-    { name: "Fiverr", href: "https://www.fiverr.com/jasimmalook?public_mode=true", icon: FiverrIcon },
-    { name: "Upwork", href: "https://www.upwork.com/freelancers/~014c25762fc2275193?viewMode=1", icon: UpworkIcon },
+    { name: "Fiverr", href: "https://www.fiverr.com/jasimmalook?public_mode=true", icon: SiFiverr },
+    { name: "Upwork", href: "https://www.upwork.com/freelancers/~014c25762fc2275193?viewMode=1", icon: SiUpwork },
     { name: "Email", href: "mailto:jasimmalook@gmail.com", icon: Mail },
     { name: "WhatsApp", href: "https://wa.me/923369662100", icon: MessageCircle },
 ];
