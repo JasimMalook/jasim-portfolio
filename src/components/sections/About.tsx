@@ -3,54 +3,102 @@
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { motion } from "framer-motion";
-import { Code, Database, Sparkles, Terminal, Cpu, Globe } from "lucide-react";
+import { Code, Server, Database, Wrench, Sparkles, Layout } from "lucide-react";
 
-const skills = [
-    { name: "React / Next.js", icon: Code },
-    { name: "Node.js / Express", icon: Terminal },
-    { name: "MongoDB", icon: Database },
-    { name: "Firebase", icon: Globe }, // Using Globe as placeholder or Database
-    { name: "REST APIs", icon: Globe },
-    { name: "AI Tools", icon: Sparkles },
+const skillCategories = [
+    {
+        title: "Frontend",
+        icon: Code,
+        skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    },
+    {
+        title: "Backend",
+        icon: Server,
+        skills: ["Node.js", "Express.js", "REST APIs", "Auth Systems"],
+    },
+    {
+        title: "Databases",
+        icon: Database,
+        skills: ["MongoDB", "Supabase", "Firebase"],
+    },
+    {
+        title: "System & Tools",
+        icon: Wrench,
+        skills: ["Git & GitHub", "API Integration", "SaaS Architecture", "Admin Dashboards"],
+    },
+    {
+        title: "AI & Automation",
+        icon: Sparkles,
+        skills: ["AI Integration", "OpenAI APIs", "n8n", "Make", "Workflow Automation"],
+    },
+    {
+        title: "CMS",
+        icon: Layout,
+        skills: ["WordPress"],
+    },
 ];
 
 export function About() {
     return (
         <Section id="about" className="bg-secondary/30">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                {/* Left – About Text */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl font-bold mb-6">About Me</h2>
-                    <div className="space-y-4 text-muted-foreground text-lg">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+                    <div className="space-y-5 text-muted-foreground text-lg leading-relaxed">
                         <p>
-                            I’m a Full-Stack Developer focused on building clean, fast, and scalable web and mobile applications.
-                            I work with modern technologies like React, Next.js, Node.js, and MongoDB to turn ideas into production-ready products.
+                            Most businesses lose time and money due to slow, manual processes
+                            and systems that don&apos;t scale. I help solve that.
                         </p>
                         <p>
-                            I also use AI-assisted tools to improve development speed, code quality, and problem-solving,
-                            helping businesses launch reliable and efficient solutions.
+                            I&apos;m a Full-Stack Developer &amp; Automation Specialist focused on
+                            building fast, scalable web and mobile applications, combined with
+                            AI-powered automation to eliminate repetitive work and improve
+                            efficiency.
+                        </p>
+                        <p>
+                            Using technologies like React, Next.js, Node.js, and MongoDB, I
+                            build production-ready digital products. With tools like n8n, Make,
+                            and OpenAI APIs, I help businesses automate operations, reduce
+                            manual workload, and scale without increasing team size.
                         </p>
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-2 gap-4">
-                    {skills.map((skill, index) => (
-                        <Card
-                            key={skill.name}
-                            variant="glass"
-                            className="p-4 flex flex-col items-center justify-center gap-2 hover:bg-primary/5 transition-colors"
-                            initial={{ opacity: 0, y: 20 }}
+                {/* Right – Skills by Category */}
+                <div className="space-y-5">
+                    {skillCategories.map((cat, catIndex) => (
+                        <motion.div
+                            key={cat.title}
+                            initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ duration: 0.4, delay: catIndex * 0.07 }}
                         >
-                            <skill.icon className="w-8 h-8 text-primary" />
-                            <span className="font-medium text-center">{skill.name}</span>
-                        </Card>
+                            <Card variant="glass" className="p-5">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <cat.icon className="w-4 h-4 text-primary" />
+                                    <span className="text-sm font-semibold uppercase tracking-wider text-foreground">
+                                        {cat.title}
+                                    </span>
+                                </div>
+                                <div className="flex flex-wrap gap-2">
+                                    {cat.skills.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-secondary text-secondary-foreground border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-colors"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </Card>
+                        </motion.div>
                     ))}
                 </div>
             </div>
