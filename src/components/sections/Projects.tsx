@@ -177,7 +177,7 @@ function ProjectCard({ project }: { project: ProjectDetail }) {
                 )}
             </div>
 
-            <div className="p-6 flex flex-col flex-1">
+            <div className="py-5 px-4 md:p-6 flex flex-col flex-1">
                 <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                 <p className="text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
 
