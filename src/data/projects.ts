@@ -245,6 +245,7 @@ export const projects: ProjectDetail[] = [
         description: "Mail Pilot is a full-stack email automation and management system built for efficient communication workflows. It allows users to manage, automate, and streamline email operations through a clean and scalable SaaS-style interface. The platform features a modern dashboard, automation logic, and a secure backend architecture designed for growth.",
         tags: ["Next.js", "MongoDB", "Express", "React", "Node.js", "SaaS", "Email Automation", "Full-Stack"],
         color: "from-blue-600 to-indigo-700",
+        liveUrl: "https://mailpilot-saas-llm4.vercel.app/",
         githubUrl: "https://github.com/JasimMalook/mailpilot-saas",
         images: [
             "/projects/mail-pilot/mail-pilot-cover.webp",
@@ -311,6 +312,7 @@ export const projects: ProjectDetail[] = [
         description: "A comprehensive trucking dispatch system designed to digitize and optimize logistics operations. The platform provides dispatch management, route tracking, and workflow organization tools that help transport businesses move from manual processes to a structured digital system.",
         tags: ["React", "TypeScript", "Tailwind CSS", "React Router", "Logistics", "Dispatch Management", "Web App"],
         color: "from-orange-500 to-red-600",
+        liveUrl: "https://trucking-dispatch-system.vercel.app/",
         githubUrl: "https://github.com/JasimMalook/trucking-dispatch-system",
         images: [
             "/projects/truck-dispatch/Truck cover photo.webp",
