@@ -2,38 +2,38 @@
 
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
-import { Globe, Smartphone, Layout, Rocket, Server, BrainCircuit } from "lucide-react";
+import { Globe, Smartphone, Rocket, BrainCircuit, Server, Zap } from "lucide-react";
 
 const services = [
     {
-        title: "Web App Development",
-        description: "Modern, scalable full-stack web applications built with React and Next.js, optimized for performance, SEO, and maintainability.",
+        title: "Web Application Development",
+        description: "Build fast, scalable, and modern web applications using React and Next.js focused on performance, SEO, and real business problem solving.",
         icon: Globe,
     },
     {
         title: "Mobile App Development",
-        description: "High-quality cross-platform mobile apps for iOS and Android using React Native and modern web technologies.",
+        description: "Cross-platform mobile applications built for iOS and Android with smooth performance and modern UI/UX.",
         icon: Smartphone,
     },
     {
-        title: "Landing Pages",
-        description: "Conversion-focused landing pages designed to attract users, capture leads, and clearly communicate your product’s value.",
-        icon: Layout,
-    },
-    {
-        title: "SaaS MVP Development",
-        description: "Rapid MVP and prototype development to help startups validate ideas, launch faster, and iterate with confidence.",
+        title: "SaaS & MVP Development",
+        description: "End-to-end SaaS platforms and MVPs that help startups validate ideas, launch quickly, and scale efficiently.",
         icon: Rocket,
     },
     {
-        title: "API & Backend",
-        description: "Secure and scalable RESTful and GraphQL APIs, database design, and authentication systems built with Node.js.",
+        title: "AI-Powered Solutions",
+        description: "Smart applications integrated with AI and LLMs to automate workflows, improve decision-making, and enhance user experience.",
+        icon: BrainCircuit,
+    },
+    {
+        title: "Backend & API Systems",
+        description: "Secure and scalable backend systems using Node.js, including REST APIs, authentication, and database architecture.",
         icon: Server,
     },
     {
-        title: "AI-Powered Apps",
-        description: "Smart features powered by AI and LLM integrations to automate workflows, enhance user experience, and add intelligence to apps.",
-        icon: BrainCircuit,
+        title: "Automation & Business Systems",
+        description: "Custom automation solutions using tools like n8n, Make, Zapier, and APIs to eliminate manual work, optimize workflows, and improve business efficiency.",
+        icon: Zap,
     },
 ];
 
@@ -43,12 +43,12 @@ export function Services() {
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Services</h2>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                    End-to-end development solutions to build, launch, and scale digital products.
+                    End-to-end digital solutions to build, automate, and scale modern businesses.
                 </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {services.map((service, index) => (
+                {services.map((service) => (
                     <Card
                         key={service.title}
                         className="group hover:border-primary/50 transition-all duration-300"
