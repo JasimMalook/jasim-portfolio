@@ -19,7 +19,7 @@ const skillCategories = [
     {
         title: "Databases",
         icon: Database,
-        skills: ["MongoDB", "Supabase", "Firebase"],
+        skills: ["MongoDB", "Supabase", "Firebase", "PostgreSQL", "SQL"],
     },
     {
         title: "System & Tools",
