@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   },
   description:
     "I build fast, scalable web & mobile apps, AI automations, and SaaS solutions for startups worldwide.",
-  metadataBase: new URL("https://jasim.dev"),
+  metadataBase: new URL("https://jasim-portfolio.vercel.app"),
   openGraph: {
     title: "Jasim | Full-Stack Developer & Automation Specialist",
     description:
       "I build fast, scalable web & mobile apps, AI automations, and SaaS solutions for startups worldwide.",
-    url: "https://jasim.dev",
+    url: "https://jasim-portfolio.vercel.app",
     siteName: "Jasim Malook",
     images: [
       {

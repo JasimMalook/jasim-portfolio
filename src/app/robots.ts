@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
                 allow: "/",
             },
         ],
-        sitemap: "https://jasim.dev/sitemap.xml",
+        sitemap: "https://jasim-portfolio.vercel.app/sitemap.xml",
     };
 }

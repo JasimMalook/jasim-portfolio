@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://jasim.dev";
+const BASE_URL = "https://jasim-portfolio.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     return [
