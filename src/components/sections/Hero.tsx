@@ -3,11 +3,52 @@
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, User } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect, useCallback } from "react";
+
+const phrases = [
+    "web & mobile apps",
+    "AI automations",
+    "SaaS products",
+    "smart business systems",
+];
+
+const TYPING_SPEED = 80;
+const DELETING_SPEED = 40;
+const PAUSE_AFTER_TYPE = 1800;
 
 export function Hero() {
+    const [phraseIndex, setPhraseIndex] = useState(0);
+    const [text, setText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    const tick = useCallback(() => {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (!isDeleting) {
+            setText(currentPhrase.slice(0, text.length + 1));
+            if (text.length + 1 === currentPhrase.length) {
+                setTimeout(() => setIsDeleting(true), PAUSE_AFTER_TYPE);
+                return;
+            }
+        } else {
+            setText(currentPhrase.slice(0, text.length - 1));
+            if (text.length - 1 === 0) {
+                setIsDeleting(false);
+                setPhraseIndex((prev) => (prev + 1) % phrases.length);
+                return;
+            }
+        }
+    }, [text, isDeleting, phraseIndex]);
+
+    useEffect(() => {
+        const speed = isDeleting ? DELETING_SPEED : TYPING_SPEED;
+        const timer = setTimeout(tick, speed);
+        return () => clearTimeout(timer);
+    }, [tick, isDeleting]);
+
     return (
         <Section className="min-h-screen flex items-center justify-center pt-24 overflow-hidden">
             {/* Background Blobs */}
@@ -30,14 +71,15 @@ export function Hero() {
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
                         I build modern <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
-                            web & mobile apps
+                            {text}
+                            <span className="inline-block w-[3px] h-[1em] bg-primary ml-1 align-middle animate-pulse" />
                         </span>
                         <br />
                         for growing businesses
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
-                        Full-Stack Developer specializing in clean, fast, and scalable solutions.
-                        Helping startups and companies turn ideas into production-ready products.
+                        Full-Stack Developer &amp; Automation Specialist building production-ready
+                        web apps, AI workflows, and SaaS solutions for startups worldwide.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Button size="lg" asChild>
