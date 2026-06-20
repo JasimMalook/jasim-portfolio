@@ -29,7 +29,7 @@ const skillCategories = [
     {
         title: "AI & Automation",
         icon: Sparkles,
-        skills: ["AI Integration", "OpenAI APIs", "n8n", "Make", "GoHighLevel", "OpenClaw", "Hermes Agent", "Zapier", "Workflow Automation"],
+        skills: ["AI Integration", "OpenAI APIs", "n8n", "Make", "Zapier", "GoHighLevel", "Hermes Agent", "OpenClaw", "Workflow Automation", "Business Process Automation"],
     },
     {
         title: "CMS",
