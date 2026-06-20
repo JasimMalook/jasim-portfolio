@@ -83,7 +83,7 @@ export function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-background/95 backdrop-blur-md border-b border-border/50 overflow-hidden"
+                        className="md:hidden bg-background/95 backdrop-blur-md border-b border-border/50"
                     >
                         <div className="container mx-auto px-4 py-4 space-y-4">
                             {navLinks.map((link) => (

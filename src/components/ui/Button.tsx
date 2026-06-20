@@ -30,7 +30,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             icon: "h-10 w-10 p-0 rounded-lg",
         };
 
-        const baseStyles = "inline-flex items-center justify-center whitespace-nowrap font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 active:scale-95 hover:scale-[1.02]";
+        const baseStyles = "inline-flex items-center justify-center whitespace-nowrap font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:scale-[1.02]";
 
         if (asChild) {
             return (
